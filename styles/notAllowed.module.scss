@@ -1,0 +1,100 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  margin-top: 50px;
+}
+.imageContainer {
+  justify-content: center;
+  background-color: var(--Whitek-W-6, rgba(255, 255, 255, 0.06));
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  letter-spacing: 0.7px;
+  line-height: 157%;
+  padding: 8px 16px;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .image-container {
+    white-space: initial;
+  }
+}
+.thumbnail {
+  aspect-ratio: 1;
+  object-fit: auto;
+  object-position: center;
+  width: 24px;
+}
+.statusText {
+  font-family: Poppins, sans-serif;
+  background: linear-gradient(
+    94deg,
+    rgba(255, 255, 255, 0.4) -1.07%,
+    #fff 53.25%,
+    rgba(255, 255, 255, 0.4) 104.41%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+.titleText {
+  letter-spacing: 3.6px;
+  text-transform: uppercase;
+  background: linear-gradient(
+    94deg,
+    rgba(255, 255, 255, 0.4) -1.07%,
+    #fff 53.25%,
+    rgba(255, 255, 255, 0.4) 104.41%
+  );
+  background-clip: text;
+  text-align: center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  align-self: stretch;
+  margin-top: 32px;
+  white-space: nowrap;
+  width: 100%;
+  font: 72px/89% Poppins, sans-serif;
+}
+@media (max-width: 991px) {
+  .titleText {
+    max-width: 100%;
+    font-size: 40px;
+  }
+}
+@media (max-width: 500px) {
+  .titleText {
+    font-size: 27px;
+  }
+}
+.separator {
+  border: 1px solid rgba(255, 255, 255, 0.21);
+  backdrop-filter: blur(18.149999618530273px);
+  background-color: rgba(255, 255, 255, 0.06);
+  margin-top: 32px;
+  width: 557px;
+  max-width: 100%;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 99px;
+  div {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  span {
+    a {
+      color: #f89501;
+    }
+  }
+  @media (max-width: 991px) {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,204 @@
+@keyframes neonPulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.4;
+	}
+}
+
+@keyframes wheelsPulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.7;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 0.1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(7);
+	}
+}
+
+@keyframes droidAnimate {
+	0%,
+	100% {
+		transform: translate(0px, 0px);
+	}
+	10% {
+		transform: translate(10px, 10px);
+	}
+	20% {
+		transform: translate(5px, 15px);
+	}
+	30% {
+		transform: translate(0px, 10px);
+	}
+	40% {
+		transform: translate(0px, 0px);
+	}
+	50% {
+		transform: translate(5px, 5px);
+	}
+	60% {
+		transform: translate(10px, 0px);
+	}
+	70% {
+		transform: translate(5px, -5px);
+	}
+	80% {
+		transform: translate(0px, -10px);
+	}
+	90% {
+		transform: translate(-5px, -5px);
+	}
+}
+
+@keyframes animateArrow {
+	0%,
+	50%,
+	100% {
+		transform: translateY(0px);
+	}
+	25% {
+		transform: translateY(2px);
+	}
+	75% {
+		transform: translateY(-2px);
+	}
+}
+
+@keyframes inputBoxLoader {
+	0% {
+		left: 0;
+		width: 0;
+	}
+	50% {
+		width: 100%;
+	}
+	100% {
+		left: auto;
+		right: 0;
+		width: 0;
+	}
+}
+
+@keyframes scrollIcon {
+	0%,
+	100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-3px);
+	}
+}
+
+@keyframes hiddenSecondModal {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes upDownAnimate {
+	0%,
+	50%,
+	100% {
+		top: 0;
+	}
+	25% {
+		top: 10px;
+	}
+	75% {
+		top: -10px;
+	}
+}
+@keyframes upDownAnimateEye {
+	0%,
+	50%,
+	100% {
+		top: 33vh;
+		@media (max-width: ($md2+px)) {
+			top: 35vh;
+		}
+	}
+	25% {
+		top: calc(33vh + 10px);
+		@media (max-width: ($md2+px)) {
+			top: calc(35vh + 10px);
+		}
+	}
+	75% {
+		top: calc(33vh - 10px);
+		@media (max-width: ($md2+px)) {
+			top: calc(35vh - 10px);
+		}
+	}
+}
+
+@keyframes rotateEye {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes showdownDecor1 {
+	0%,
+	100% {
+		top: 0;
+		left: 0;
+		transform: rotate(0deg) scale(1);
+	}
+	25% {
+		top: -50%;
+		left: -10%;
+		transform: rotate(90deg) scale(0.8);
+	}
+	50% {
+		top: -35%;
+		left: 10%;
+		transform: rotate(-30deg) scale(1.2);
+	}
+	75% {
+		top: -10%;
+		left: -20%;
+		transform: rotate(-180deg) scale(0.6);
+	}
+}
+@keyframes showdownDecor2 {
+	0%,
+	100% {
+		top: 0;
+		right: 0;
+		transform: rotate(0deg) scale(1);
+	}
+	25% {
+		top: 20%;
+		right: 20%;
+		transform: rotate(90deg) scale(0.8);
+	}
+	50% {
+		top: -15%;
+		right: -10%;
+		transform: rotate(-30deg) scale(1.2);
+	}
+	75% {
+		top: -5%;
+		right: 5%;
+		transform: rotate(-180deg) scale(0.6);
+	}
+}

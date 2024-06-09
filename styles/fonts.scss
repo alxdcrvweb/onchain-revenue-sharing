@@ -1,0 +1,30 @@
+// @font-face {
+// 	font-family: "CODE_PRO_LC";
+// 	font-display: swap;
+// 	src: url("/fonts/CODE_PRO_LC/CODE_PRO_LC.woff2") format("woff2"),
+// 		url("/fonts/CODE_PRO_LC/CODE_PRO_LC.woff") format("woff");
+// 	font-weight: 400;
+// 	font-style: normal;
+// }
+@font-face {
+	font-family: "Poppins";
+	font-display: swap;
+	src: url("/fonts/Poppins/Poppins.woff2") format("woff2"),
+		url("/fonts/Poppins/Poppins.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "PoppinsBold";
+	font-display: swap;
+	src: url("/fonts/PoppinsBold/Poppins-Bold.woff2") format("woff2"),
+		url("/fonts/PoppinsBold/Poppins-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Inter";
+	font-display: swap;
+	src: url("/fonts/Inter/Inter.woff2") format("woff2"),
+		url("/fonts/Inter/Inter.woff") format("woff");
+}

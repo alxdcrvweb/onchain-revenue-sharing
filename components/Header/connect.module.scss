@@ -1,0 +1,94 @@
+//.wrapper {
+//  width: 100vw;
+//  height: max-content;
+//}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  //width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  //height: 80px;
+  padding: 22px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid;
+  border-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 1.88%, hsla(0, 0%, 100%, .4) 49.36%, hsla(0, 0%, 100%, 0) 96.52%) 1;
+  backdrop-filter: blur(2.00509px);
+  background-color: rgba(0, 0, 0, .851);
+  z-index: 999999999;
+  //background-image: url("/headerbg.png");
+  //background-repeat: no-repeat;
+  //background-size: cover;
+  //background-position: center;
+  @media (max-width: 991px) {
+    padding: 22px 7px;
+  }
+}
+.link {
+  color: var(--Whitek-W-64, rgba(255, 255, 255, 0.64));
+  text-align: center;
+  font-family: 'Poppins';
+  font-size: 14px;
+  font-style: normal;
+  //margin-right: 20px;
+  font-weight: 400;
+  line-height: 22px; /* 157.143% */
+  letter-spacing: 0.7px;
+  cursor: pointer;
+  text-transform: uppercase;
+  a, a:hover, a:visited, a:active {
+    text-decoration: none;
+    color: inherit;
+    white-space: nowrap;
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 17px 32px;
+  color: var(--light-2);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all .3s ease-in-out;
+  border: 1px solid transparent;
+  border-inline: none;
+  text-align: center;
+  border-image: linear-gradient(270deg, transparent, transparent) 1;
+
+  &:hover {
+    color: white;
+    border-image: linear-gradient(90deg, rgba(0, 0, 0, .08), #ff9c12 50.08%, transparent) 1 !important;
+  }
+}
+.connect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  //background-image: url("/connect.png");
+  height: 56px;
+  width: 146px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: "Poppins";
+  border: 1px solid;
+  border-image: linear-gradient(90deg, rgba(0, 0, 0, .08), #ff9c12 50.08%, transparent) 1 !important;
+}
+.headerLinks{
+  display: grid;
+  grid-template-columns: repeat(6, max-content);
+  gap: 8px;
+  margin-left: auto;
+  @media (max-width: 768px) {
+    grid-template-columns: max-content;
+    gap: 0;
+  }
+}

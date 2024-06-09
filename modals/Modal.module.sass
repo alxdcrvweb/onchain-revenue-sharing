@@ -1,0 +1,170 @@
+.fade
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    // background: #0008
+    display: flex
+    align-items: center
+    justify-content: center
+    z-index: 99999
+.modal__link
+    color: black
+    text-decoration: underline
+.modal__amount
+    font-family: "ApocLCLight"
+    font-size: 24px
+    font-weight: bold
+    font-style: italic
+    user-select: none
+.modal__off
+    display: none
+.modal__disable
+    opacity: 0.5
+    pointer-events: none
+.modal__count
+    border: 1px solid #747474
+    color: #747474
+    border-radius: 10px
+    padding-left: 5px
+    padding-right: 5px
+    padding-top: 2px
+    padding-bottom: 2px
+    user-select: none
+    cursor: pointer
+    &:first-child
+        margin-right: 20px
+        margin-left: 5px
+    &:last-child
+        margin-left: 20px
+.modal__text
+    margin-top: 100px
+    text-align: center
+    @media screen and (max-width: 768px)
+        margin-top: 40px
+        padding-left: 20px
+        padding-right: 20px
+.modal__container__finish
+    .modal__mint__finish
+        img
+            height: 376px!important
+            object-fit: cover
+        @media screen and (max-width: 768px)
+            height: 690px!important
+    @media screen and (max-width: 768px)
+        height: 690px!important
+.mint__row__two
+    margin-bottom: 7px!important
+.modal__mint__button
+    background-color: #000000
+    color: white
+    font-family: "DMSans"
+    font-size: 15px
+    width: 154px
+    border-radius: 100px
+    margin-top: 20px
+    height: 42px
+    border: 1px solid transparent
+    &:hover
+        background-color: white
+        color: black
+        border: 1px solid #000000
+.modal__mint__container
+    z-index: 999999
+    filter: drop-shadow(0px 0px 38px #000)
+    background-color: rgba(255, 255 ,255 ,0.1 )
+    display: flex
+    color: black
+    border-radius: 10px
+    padding: 35px
+    width: 100vw
+    max-width: 1009px
+    height: 443px
+    flex-direction: column
+    overflow: hidden
+    @media screen and (max-width: 768px)
+        padding: 0px
+        width: 389px
+        max-width: 90vw
+        height: 780px
+        max-height: 100vh
+    .modal__mint__roadmap
+        font-size: 12px
+        color: #616161
+        letter-spacing: 1px
+        margin-top: 10px
+
+    .modal__mint__row
+        height: 25px
+        font-size: 18px
+        width: 100%
+        display: grid
+        grid-template-columns: max-content 1fr max-content
+        padding-left: 30px
+        padding-right: 50px
+        margin-bottom: 2px
+        @media screen and (max-width: 768px)
+            padding-right: 20px
+        &::before
+            content: ""
+            width: 5px
+            height: 5px
+            background-color: black
+            position: absolute
+            border-radius: 50%
+            transform: translateY(7px) translateX(-16px)
+    .modal__mint__line
+        border-bottom: 2px dotted #C4C4C4
+        height: 18px
+    .modal__mint__text
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+    .modal__mint__sub
+        font-size: 18px
+    .mint__close
+        position: absolute
+        top: 40px
+        right: 40px
+        cursor: pointer
+    .modal__mint__wl
+        font-size: 18px
+        color: #030202
+        line-height: 24px
+        text-align: center
+        max-width: 80%
+        a
+            color: #3E30D7
+    .modal__mint
+        background-color: white
+        width: 100%
+        height: 100%
+        display: grid
+        grid-template-columns: 351px 1fr
+        border-radius: 13px
+        overflow: hidden
+        img
+            height: 102%
+            object-fit: cover
+        @media screen and (max-width: 768px)
+            display: flex
+            flex-direction: column
+            width: 389px
+            max-width: 90vw
+            height: 740px
+
+            img
+                height: 392px
+                object-fit: cover
+        @media screen and (max-height: 700px) and (max-width: 768px)
+            img
+                object-fit: cover
+                height: 332px
+
+    .heading
+        display: flex
+        justify-content: space-between
+        span
+            cursor: pointer
