@@ -12,10 +12,10 @@ const Main = observer(() => {
   const stakingstore = useInjection(StakingStore);
 
   useEffect(() => {
-    if (web3store.address) {
+    if (web3store) {
       web3store.getCurrentSeason();
     }
-  }, [web3store.address]);
+  }, [web3store]);
   return (
     <>
       <div className="container">
