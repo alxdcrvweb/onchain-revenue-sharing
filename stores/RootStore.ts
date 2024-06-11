@@ -4,22 +4,22 @@ import { useMemo } from "react";
 import { Web3Store } from "./Web3Store";
 // import {WalletStore} from "./WalletStore";
 import "reflect-metadata";
-import { GalleryStore } from "./GalleryStore";
+import { StakingStore } from "./StakingStore";
 // @ts-ignore
 export class HistoryStore implements History {}
 export class RootStore {
   public web3store: Web3Store;
   public container: Container;
   public modalStore: ModalStore;
-  public galleryStore: GalleryStore;
+  public stakingStore: StakingStore;
   public constructor() {
     this.web3store = new Web3Store(this);
-    this.galleryStore = new GalleryStore(this);
+    this.stakingStore = new StakingStore(this);
     this.modalStore = new ModalStore(this);
     this.container = new Container();
     this.container.bind(Web3Store).toConstantValue(this.web3store);
     this.container.bind(ModalStore).toConstantValue(this.modalStore);
-    this.container.bind(GalleryStore).toConstantValue(this.galleryStore);
+    this.container.bind(StakingStore).toConstantValue(this.stakingStore);
     this.container.bind(Container).toConstantValue(this.container);
   }
 }

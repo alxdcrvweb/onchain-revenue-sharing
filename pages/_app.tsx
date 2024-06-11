@@ -31,6 +31,7 @@ import { WagmiProvider, createConfig, http } from "wagmi";
 import { QueryClient } from "@tanstack/query-core";
 import { QueryClientProvider } from "@tanstack/react-query";
 import Header from "../components/Header/header";
+import ModalContainer from "../modals/ModalContainer";
 // import { SessionProvider, getCsrfToken } from "next-auth/react";
 const projectId = "8271a5dee2c5981640ad5d12b20132af";
 const connectors = connectorsForWallets(
@@ -94,7 +95,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
                     <Header />
                     <AnyComponent {...pageProps} />
                     <ToastContainer style={{ zIndex: 10000000000 }} />
-                    <ModalsContainer />
+                    {/* <ModalsContainer /> */}
                   </Suspense>
                 </RainbowKitProvider>
               </QueryClientProvider>

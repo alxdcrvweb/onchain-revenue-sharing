@@ -34,6 +34,8 @@ export class Web3Store {
   @observable fromPills: number = 0;
   @observable balancePills: number = 0;
   @observable balanceRecept: number = 0;
+  @observable season: number = 0;
+  @observable isMidseason: boolean = false;
   @observable fromPublic: number = 0;
   public constructor(private readonly rootStore: RootStore) {
     makeObservable(this);
@@ -53,38 +55,68 @@ export class Web3Store {
       // return false;
     }
   };
-  depositWithAllowance = async (val: number) => {
+  claim = async (positionId: number, proof?: string[], amount?: string) => {
+    console.log(positionId, proof, amount);
+    try {
+      const res = await this.contract.methods
+        .claim(amount, positionId, proof)
+        .send({
+          from: this.address,
+        });
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  };
+  withdraw = async (positionId: number) => {
+    try {
+      const res = await this.contract.methods.withdraw(positionId).send({
+        from: this.address,
+      });
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  };
+  depositWithAllowance = async (val: number, set: (b: boolean) => void) => {
     try {
       const allowance = await this.erc20.methods
-        .allowance(this.address, erc20Contract)
+        .allowance(this.address, stakeContract)
         .call();
       if (Number(allowance) >= val + 0.02) {
-        this.deposit(val);
+        this.deposit(val, set);
       } else {
         await this.erc20?.methods
           .approve(
-            erc20Contract,
+            stakeContract,
             "115792089237316195423570985008687907853269984665640564039457584007913129639935"
           )
           .send({
             from: this.address,
           })
           .on("receipt", () => {
-            this.deposit(val);
+            this.deposit(val, set);
           });
       }
     } catch (e) {
       console.log(e);
     }
   };
-  deposit = async (val: number) => {
+  deposit = async (val: number, set: (b: boolean) => void) => {
     try {
-      const res = await this.contract.methods.deposit(val * 10 ** 18).send({
-        from: this.address,
-        value: val * 10 ** 18,
-      });
+      const res = await this.contract.methods
+        .deposit(Web3.utils.toWei(val.toString(), "ether"))
+        .send({
+          from: this.address,
+          // value: Web3.utils.toWei(val.toString(), "ether"),
+        });
       console.log(res);
+      set(false);
     } catch (e) {
+      set(false);
+
       console.log(e);
     }
   };
@@ -107,7 +139,17 @@ export class Web3Store {
       this.subscribeProvider();
     }
   };
-
+  getCurrentSeason = async () => {
+    try {
+      const season = await this.contract.methods.season().call();
+      const isMidseason = await this.contract.methods.isMidseason().call();
+      console.log(isMidseason);
+      this.isMidseason = isMidseason
+      this.season = Number(season);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   checkIsPaused = async () => {
     try {
       const pause = await this.contract.methods.paused().call();
@@ -141,6 +183,7 @@ export class Web3Store {
   };
   subscribeProvider = () => {
     console.log("subscribeProvider");
+    //@ts-ignore
     this.web3?.currentProvider?.on("accountsChanged", (account) => {
       console.log("account", account);
       this.setAddress({ address: account[0] });

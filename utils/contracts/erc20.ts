@@ -1,4 +1,4 @@
-export const erc20Contract = "0x791436044a77C8E432Da9439443c3c0A6E333FA9";
+export const erc20Contract = "0xb5abb7a42d01175b583e953839ee3722b9ef3dad";
 export const erc20Abi = [
   {
     inputs: [

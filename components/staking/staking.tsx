@@ -1,15 +1,24 @@
 import * as React from "react";
-import mintbg from "../../public/mintbg.png";
 import { observer } from "mobx-react";
 import { useInjection } from "inversify-react";
 import { Web3Store } from "../../stores/Web3Store";
-import { fromWeiToEth } from "../../utils/utilities";
+import { StakingStore } from "../../stores/StakingStore";
+
 const StakingComponent = observer(() => {
-  const web3store = useInjection(Web3Store);
+  const web3Store = useInjection(Web3Store);
+  const stakingStore = useInjection(StakingStore);
   const [stakeValue, setStakeValue] = React.useState("0");
-  const dep = () => {
-    web3store.depositWithAllowance(Number(stakeValue))
+  const [blocked, setBlocked] = React.useState(false);
+
+  const dep = async () => {
+    setBlocked(true);
+    await web3Store.depositWithAllowance(Number(stakeValue), setBlocked);
   };
+  React.useEffect(() => {
+    if (web3Store.address && web3Store.season !== undefined) {
+      stakingStore.getPoints(web3Store.address, web3Store.season, false);
+    }
+  }, [web3Store.address, web3Store.season]);
   return (
     <>
       <div className="staking-container">
@@ -47,19 +56,30 @@ const StakingComponent = observer(() => {
                     1000 points
                   </div>
                 </div>
-                <div className="staking-button" onClick={dep}>stake</div>
+                <div
+                  className="staking-button"
+                  style={{
+                    pointerEvents: !blocked ? "auto" : "none",
+                    opacity: !blocked ? 1 : 0.5,
+                  }}
+                  onClick={dep}
+                >
+                  stake
+                </div>
               </div>
             </div>
             <div className="staking-column-secondary">
               <div className="staking-summary">
-                <div className="staking-total-points">3450</div>
+                <div className="staking-total-points">
+                  {stakingStore.totalPoints + stakingStore.totalPointsPast}
+                </div>
                 <div className="staking-total-label">Total points</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <style jsx>{`
+      <style jsx >{`
         .staking-container {
           align-items: start;
           display: flex;

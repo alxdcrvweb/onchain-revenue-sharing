@@ -5,24 +5,22 @@ import { useInjection } from "inversify-react";
 import { StakingStore } from "../../stores/StakingStore";
 import { Web3Store } from "../../stores/Web3Store";
 
-const UserPositions = observer(() => {
+const UserPositionsPast = observer(() => {
   const stakingStore = useInjection(StakingStore);
   const web3Store = useInjection(Web3Store);
-  React.useEffect(() => {
-    if (web3Store.address && web3Store.season !== undefined) {
-      stakingStore.getStakingList(web3Store.address, web3Store.season, false);
-    }
-  }, [web3Store.address, web3Store.season]);
+
   return (
     <>
       <div className="positions-container">
-        <div className="positions-header">Your positions (current season is {web3Store.season})</div>
+        <div className="positions-header">
+          Claim rewards from season {web3Store.season - 1}
+        </div>
         <div className="positions-summary">
           <div className="positions-staked">Total onchain staked</div>
           <div className="positions-points">Total points earned</div>
         </div>
-        {stakingStore.pointsList.map((el, i) => {
-          return <TableRow el={el} key={i} />;
+        {stakingStore.pointsListPast.map((el, i) => {
+          return <TableRow el={el} key={i} isPast={true} />;
         })}
       </div>
       <style jsx>{`
@@ -34,7 +32,7 @@ const UserPositions = observer(() => {
           /* padding: 0 20px; */
           width: 95vw;
           max-width: 1200px;
-          margin-top: 150px;
+          margin-top: 30px;
           margin-bottom: 30px;
         }
         .positions-header {
@@ -95,4 +93,4 @@ const UserPositions = observer(() => {
   );
 });
 
-export default UserPositions;
+export default UserPositionsPast;

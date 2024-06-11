@@ -44,6 +44,7 @@ const ModalContainer: React.FC<P> = observer(
         document.removeEventListener("keydown", handler);
       };
     }, [visible]);
+    console.log(children);
     return (
       <div
         ref={fade}
