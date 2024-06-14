@@ -32,7 +32,7 @@ const AttentionModal = observer(
           // stakeStore.getPoints(web3Store.address, web3Store.season, false);
           setModal(false);
           setBlocked(false);
-          setIsWithdrawn(false);
+          setIsWithdrawn(true);
         }, 1000);
         // }
       });
