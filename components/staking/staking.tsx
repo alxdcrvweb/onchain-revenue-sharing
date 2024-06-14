@@ -51,9 +51,9 @@ const StakingComponent = observer(() => {
                   <div className="staking-minimum">Min 1000 $onchain</div>
                   <div className="staking-rate">
                     <span style={{ color: "rgba(255,255,255,1)" }}>
-                      1 ETH ={" "}
+                      
                     </span>
-                    1000 points
+                    
                   </div>
                 </div>
                 <div
@@ -71,7 +71,7 @@ const StakingComponent = observer(() => {
             <div className="staking-column-secondary">
               <div className="staking-summary">
                 <div className="staking-total-points">
-                  {stakingStore.totalPoints + stakingStore.totalPointsPast}
+                  {stakingStore.totalPoints}
                 </div>
                 <div className="staking-total-label">Total points</div>
               </div>
