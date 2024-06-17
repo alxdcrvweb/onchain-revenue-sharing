@@ -15,7 +15,7 @@ import {
   connectorsForWallets,
 } from "@rainbow-me/rainbowkit";
 import "@farcaster/auth-kit/styles.css";
-import { base, sepolia } from "wagmi/chains";
+import { base } from "wagmi/chains";
 import { ToastContainer } from "react-toastify";
 import Head from "next/head";
 import { AuthKitProvider } from "@farcaster/auth-kit";
@@ -32,6 +32,7 @@ import { QueryClient } from "@tanstack/query-core";
 import { QueryClientProvider } from "@tanstack/react-query";
 import Header from "../components/Header/header";
 import ModalContainer from "../modals/ModalContainer";
+import { onchain } from "../utils/chains";
 // import { SessionProvider, getCsrfToken } from "next-auth/react";
 const projectId = "8271a5dee2c5981640ad5d12b20132af";
 const connectors = connectorsForWallets(
@@ -55,9 +56,9 @@ const connectors = connectorsForWallets(
 );
 const wagmiConfig = createConfig({
   connectors,
-  chains: [sepolia],
+  chains: [onchain],
   transports: {
-    [sepolia.id]: http(),
+    [onchain.id]: http(),
   },
 });
 // export async function getServerSideProps(context: any) {
@@ -83,7 +84,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           <Provider container={container}>
             <WagmiProvider config={wagmiConfig}>
               <QueryClientProvider client={queryClient}>
-                <RainbowKitProvider initialChain={sepolia}>
+                <RainbowKitProvider initialChain={onchain}>
                   <Suspense fallback={<h1>Loading posts...</h1>}>
                     {/* <Rotate /> */}
                     <Head>

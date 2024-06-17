@@ -1,4 +1,4 @@
-export const stakeContract = "0x07d57d6b6053a737180d0545c6dd8f7545363b88";
+export const stakeContract = "0x3C6dfe9081F0B560e0b2C0c1D5648c775f28a38C";
 export const stakeAbi = [
   {
     inputs: [{ internalType: "address", name: "_token", type: "address" }],
