@@ -56,9 +56,9 @@ const connectors = connectorsForWallets(
 );
 const wagmiConfig = createConfig({
   connectors,
-  chains: [onchain],
+  chains: [base],
   transports: {
-    [onchain.id]: http(),
+    [base.id]: http(),
   },
 });
 // export async function getServerSideProps(context: any) {
@@ -75,7 +75,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     setLoading(true);
   }, []);
   const config = {
-    rpcUrl: "https://mainnet.optimism.io",
+    rpcUrl: "https://base.llamarpc.com",
   };
   return (
     <>
@@ -84,7 +84,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           <Provider container={container}>
             <WagmiProvider config={wagmiConfig}>
               <QueryClientProvider client={queryClient}>
-                <RainbowKitProvider initialChain={onchain}>
+                <RainbowKitProvider initialChain={base}>
                   <Suspense fallback={<h1>Loading posts...</h1>}>
                     {/* <Rotate /> */}
                     <Head>

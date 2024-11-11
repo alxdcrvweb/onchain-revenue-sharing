@@ -47,7 +47,7 @@ export class StakingStore {
       const res = await axios.get(
         backendUrl + `api/v1/points/${season}/${address}`
       );
-      console.log(res.data.data.positions);
+      console.log(res.data);
       let pts = Number(
         res.data.data.positions.reduce(
           (acc: any, item: any) => acc + item.points,
