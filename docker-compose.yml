@@ -1,20 +1,22 @@
-version: '3'
+version: "3"
 services:
-  app:
-    container_name: stake
-    restart: always
-    build: .
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
     environment:
       - NODE_ENV=production
+    ports:
+      - "2310:80"
 
   nginx:
     image: nginx:latest
     container_name: nginx_proxy
     depends_on:
-      - app
+      - frontend
     ports:
-      - '80:80'
-      - '443:443'
+      - "80:80"
+      - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./certbot/conf:/etc/letsencrypt
