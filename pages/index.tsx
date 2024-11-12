@@ -19,7 +19,7 @@ const Main = observer(() => {
   return (
     <>
       <div className="container">
-        {!web3store.isMidseason ? (
+        {!web3store.isMidseason && web3store.address && (
           <div className="main-page">
             <StakingComponent />
             <UserPositions />
@@ -27,12 +27,23 @@ const Main = observer(() => {
               <UserPositionsPast />
             )}
           </div>
-        ) : (
+        )}
+        {web3store.isMidseason && web3store.address && (
           <div className="cont">
             <div className="staking-container">
               <div className="staking-header">Onchain staking on pause</div>
               <div className="staking-subheader">
                 <span>wait till next season</span> and claim your reward
+              </div>
+            </div>
+          </div>
+        )}
+        {!web3store.address && (
+          <div className="cont">
+            <div className="staking-container">
+              <div className="staking-header">Onchain staking</div>
+              <div className="staking-subheader">
+                <span>Сonnect your wallet to stake</span>
               </div>
             </div>
           </div>
